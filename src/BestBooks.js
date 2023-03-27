@@ -48,7 +48,7 @@ class BestBooks extends React.Component {
         <h2>My Essential Lifelong Learning &amp; Formation Shelf</h2>
 
         {this.state.books.length > 0 ? (
-          <p>{this.books.title}</p>
+          <p>{this.state.books.title}</p>
         ) : (
           <h3>No Books Found</h3>
         )}
