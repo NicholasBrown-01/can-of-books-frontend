@@ -6,6 +6,8 @@ class BestBooks extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      error: false,
+      errorMessage: '',
       books: []
     }
   }
@@ -13,16 +15,15 @@ class BestBooks extends React.Component {
   /* TODO: Make a GET request to your API to fetch all the books from the database  */
 
   handleBookLoading = async (event) => {
-    // componentDidMount() {
 
     try {
       let url = `${process.env.REACT_APP_SERVER_BOOKS}/books`;
       let bookDataFromAxios = await axios.get(url);
-
       this.setState({
         books: bookDataFromAxios.data,
         error: false
       });
+      console.log('Book Data', bookDataFromAxios);
 
     } catch (error) {
       this.setState({
@@ -40,7 +41,7 @@ class BestBooks extends React.Component {
 
   render() {
 
-    console.log('App state>>>>', this.state)
+    console.log('App state>>>>', this.state);
     /* TODO: render all the books in a Carousel */
 
     return (
@@ -48,7 +49,7 @@ class BestBooks extends React.Component {
         <h2>My Essential Lifelong Learning &amp; Formation Shelf</h2>
 
         {this.state.books.length > 0 ? (
-          <p>{this.state.books.title}</p>
+          <p></p>
         ) : (
           <h3>No Books Found</h3>
         )}
