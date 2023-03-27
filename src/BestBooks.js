@@ -35,7 +35,7 @@ class BestBooks extends React.Component {
 
   render() {
 
-    console.log('App state' this.state)
+    console.log('App state', this.state)
     /* TODO: render all the books in a Carousel */
 
     return (
@@ -45,7 +45,7 @@ class BestBooks extends React.Component {
         {this.state.books.length ? (
           <p>Book Carousel coming soon</p>
         ) : (
-          <h3>No Books Found :(</h3>
+          <h3>No Books Found</h3>
         )}
       </>
     )
