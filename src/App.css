@@ -1,8 +1,18 @@
 * {
   color: white !important;
+
   background-color: rgb(29, 20, 20) !important;
   margin: 25px;
   padding: 10px;
   justify-content: center;
   text-align: center;
+
+  background-color: blue !important;
+}
+
+#cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
 }
