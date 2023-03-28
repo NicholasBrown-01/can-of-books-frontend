@@ -57,12 +57,12 @@ class BestBooks extends React.Component {
     event.preventDefault();
 
     let bookObj = {
-      title: event.target.name.value,
+      title: event.target.title.value,
       description: event.target.description.value,
       status: event.target.status.value
     }
-    this.postBook(bookObj);
     console.log(bookObj);
+    this.postBook(bookObj);
   }
 
   // Handler to Post These books to the database
