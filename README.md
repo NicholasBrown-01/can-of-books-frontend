@@ -17,9 +17,9 @@
 
 01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
 
-### Feature Time Tracking
+## Feature Time Tracking
 
-Name of feature: Lab 11
+## Name of feature: Lab 11
 
 Estimate of time needed to complete: 3 hrs
 
@@ -28,6 +28,16 @@ Start time: 1:30 PST
 Finish time: _____
 
 Actual time needed to complete: _____
+
+## Name of feature: Lab 12 / Post and Delete
+
+Estimate of time needed to complete: 3 hours (180 minutes)
+
+Start time: 1400
+
+Finish time:
+
+Actual time needed to complete:
 
 ### Logistical
 

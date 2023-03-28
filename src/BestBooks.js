@@ -58,10 +58,11 @@ class BestBooks extends React.Component {
 
     let bookObj = {
       title: event.target.name.value,
-      description: event.target.name.value,
-      status: event.target.name.value.value
+      description: event.target.description.value,
+      status: event.target.status.value
     }
     this.postBook(bookObj);
+    console.log(bookObj);
   }
 
   // Handler to Post These books to the database
@@ -135,6 +136,7 @@ render() {
           <BookModal
           showModal={this.state.showModal}
           handleCloseModal={this.handleCloseModal}
+          handleBookSubmit={this.handleBookSubmit}
           />
         </div>
       ) : (

@@ -17,12 +17,13 @@ class BookModal extends React.Component {
           </Modal.Header>
 
           <Modal.Body>
-            <BookForm />
+            <BookForm 
+            handleBookSubmit={this.props.handleBookSubmit}
+            />
           </Modal.Body>
 
           <Modal.Footer>
             <Button variant="secondary" onClick={this.props.handleCloseModal}>Close</Button>
-            <Button variant="primary">Save changes</Button>
           </Modal.Footer>
         </Modal.Dialog>
       </Modal>
