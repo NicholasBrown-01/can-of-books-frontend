@@ -5,18 +5,18 @@ import Form from 'react-bootstrap/Form';
 class BookForm extends React.Component {
   render() {
     return (
-      <Form>
-        <Form.Group>
+      <Form onSubmit={this.props.handleBookSubmit}>
+        <Form.Group controlId='title'>
           <Form.Label>Add Book Name</Form.Label>
           <Form.Control type="text" placeholder="Please add a book title" />
         </Form.Group>
 
-        <Form.Group>
+        <Form.Group controlId='description'>
           <Form.Label>Book Description</Form.Label>
-          <Form.Control type="password" placeholder="Enter your description here" />
+          <Form.Control type="text" placeholder="Enter your description here" />
         </Form.Group>
 
-        <Form.Group>
+        <Form.Group controlId='status'>
           <Form.Label>Have you read this book?</Form.Label>
           <Form.Control type="text" placeholder="Please enter 'read' or 'not read'" />
         </Form.Group>
