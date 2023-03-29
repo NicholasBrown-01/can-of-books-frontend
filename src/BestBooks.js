@@ -150,9 +150,9 @@ class BestBooks extends React.Component {
                     <h3>{book.title}</h3>
                     <p>{book.description}</p>
                     <p>{book.status}</p>
-                    {/* Anoymous function added to button to allow for id to be fed into the deleteBook handler */}
+                    {/* Anonymous function added to button to allow for id to be fed into the deleteBook handler */}
                     <Button onClick={() => { this.deleteBook(book._id) }} variant="danger">DELETE</Button>
-                    <Button onClick={() => { }} variant="primary">Update Book Information</Button>
+                    <Button onClick={() => { this.updateBook(book._id)}} variant="primary">Update Book Information</Button>
                   </Carousel.Caption>
                 </Carousel.Item>
               ))}

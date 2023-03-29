@@ -12,7 +12,6 @@ class UpdateBookForm extends React.Component {
       description: event.target.description.value,
       status: event.target.status.value,
       _id: this.props.book._id,
-      __v: this.props.book.__v
     }
     console.log(bookToUpdate);
     this.props.updateBook(bookToUpdate);
@@ -21,7 +20,9 @@ class UpdateBookForm extends React.Component {
   render() {
     return (
       <>
-        <Form onSubmit={this.handleUpdateSubmit}>
+        <Form
+        show={this.props.showForm} 
+        onSubmit={this.handleUpdateSubmit}>
           <Form.Group controlId='title'>
             <Form.Label>Update Book Name</Form.Label>
             <Form.Control type="text" placeholder="Update a book title" defaultValue={this.props.books.title} />
