@@ -75,7 +75,8 @@ class BestBooks extends React.Component {
       let createdBook = await axios.post(url, bookObj);
 
       this.setState({
-        books: [...this.state.books, createdBook.data]
+        books: [...this.state.books, createdBook.data],
+        showModal: false
       });
 
     } catch (error) {
