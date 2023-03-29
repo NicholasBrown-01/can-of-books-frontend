@@ -11,6 +11,7 @@ class BestBooks extends React.Component {
       error: false,
       errorMessage: '',
       showModal: false,
+      showForm: false,
       books: []
     }
   }
@@ -150,7 +151,7 @@ render() {
                   <p>{book.status}</p>
                   {/* Anoymous function added to button to allow for id to be fed into the deleteBook handler */}
                   <Button onClick={() => { this.deleteBook(book._id) }} variant="danger">DELETE</Button>
-                  <Button  variant="primary">Update Book Information</Button>
+                  <Button  onClick={() => {}} variant="primary">Update Book Information</Button>
                 </Carousel.Caption>
               </Carousel.Item>
             ))}
