@@ -65,10 +65,9 @@ class BestBooks extends React.Component {
     this.postBook(bookObj);
   }
 
-  // Handler to Post These books to the database
+  //**  Handler to Post These books to the database */
 
   postBook = async (bookObj) => {
-
     try {
 
       let url = `${process.env.REACT_APP_SERVER_BOOKS}/books`;
@@ -84,6 +83,28 @@ class BestBooks extends React.Component {
     }
   }
 
+  //*** UPDATE B OOK IN THE STATE USING AXIOS TO HIT THE BACKEND */
+  updateBook = async (bookObjToUpdate) => {
+    try {
+      let url = `${process.env.REACT_APP_SERVER_BOOKS}/books/${bookObjToUpdate._id}`;
+  
+      let updatedBook = await axios.put(url, bookObjToUpdate);
+  
+      // TODO: set state with return from axios
+      let updatedBookArray = this.state.books.map(existingBook => {
+        return existingBook._id === bookObjToUpdate._id ?
+        updatedBook.data
+        : existingBook
+      });
+  
+      this.setState({
+        books: updatedBookArray
+      })
+      
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
 
 //*** DELETE BOOK  */
 deleteBook = async (id) => {
@@ -129,11 +150,14 @@ render() {
                   <p>{book.status}</p>
                   {/* Anoymous function added to button to allow for id to be fed into the deleteBook handler */}
                   <Button onClick={() => { this.deleteBook(book._id) }} variant="danger">DELETE</Button>
+                  <Button  variant="primary">Update Book Information</Button>
                 </Carousel.Caption>
               </Carousel.Item>
             ))}
           </Carousel>
             <Button onClick={this.handleOpenModal} variant="success">ADD BOOK</Button>
+            
+            
           <BookModal
           showModal={this.state.showModal}
           handleCloseModal={this.handleCloseModal}
