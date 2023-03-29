@@ -33,7 +33,7 @@ class BestBooks extends React.Component {
     })
   }
 
-  
+
   /* TODO: Make a GET request to your API to fetch all the books from the database  */
 
   handleBookLoading = async (event) => {
@@ -89,7 +89,7 @@ class BestBooks extends React.Component {
     }
   }
 
-  //*** UPDATE B OOK IN THE STATE USING AXIOS TO HIT THE BACKEND */
+  //*** UPDATE BOOK IN THE STATE USING AXIOS TO HIT THE BACKEND */
   updateBook = async (bookObjToUpdate) => {
     try {
       //TODO: URL for axios
@@ -141,7 +141,7 @@ class BestBooks extends React.Component {
 
     return (
       <>
-        <h2>My Essential Lifelong Learning & Formation Shelf</h2>
+        <h2>Carousel of Books</h2>
 
         {this.state.books.length > 0 ? (
           <div>
@@ -169,7 +169,6 @@ class BestBooks extends React.Component {
             {this.state.showForm &&
               <UpdateBookForm
                 selectedBook={this.state.selectedBook}
-                showForm={this.state.showForm}
                 updateBook={this.updateBook}
               />
             }
