@@ -42,9 +42,7 @@ class UpdateBookForm extends React.Component {
             <Form.Label>Have you read this book?</Form.Label>
             <Form.Control type="text" placeholder="'read' or 'not read'" defaultValue={this.props.books.status} />
           </Form.Group>
-          <Button variant="primary" type="submit">
-            Update
-          </Button>
+          <Button variant="primary" type="submit">Update</Button>
         </Form>
       </Container>
     )
