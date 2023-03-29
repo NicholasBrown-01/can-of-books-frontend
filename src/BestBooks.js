@@ -13,6 +13,7 @@ class BestBooks extends React.Component {
       errorMessage: '',
       showModal: false,
       showForm: false,
+      selectedBook: {},
       books: []
     }
   }
@@ -31,6 +32,8 @@ class BestBooks extends React.Component {
 
     })
   }
+
+  
   /* TODO: Make a GET request to your API to fetch all the books from the database  */
 
   handleBookLoading = async (event) => {
@@ -39,7 +42,7 @@ class BestBooks extends React.Component {
       let url = `${process.env.REACT_APP_SERVER_BOOKS}/books`;
       let bookDataFromAxios = await axios.get(url);
       // console.log(bookDataFromAxios.data);
-      
+
       this.setState({
         books: bookDataFromAxios.data,
         error: false
@@ -102,7 +105,8 @@ class BestBooks extends React.Component {
       });
 
       this.setState({
-        books: updatedBookArray
+        books: updatedBookArray,
+        showForm: false
       })
 
     } catch (error) {
@@ -154,7 +158,7 @@ class BestBooks extends React.Component {
                     <p>{book.status}</p>
                     {/* Anonymous function added to button to allow for id to be fed into the deleteBook handler */}
                     <Button onClick={() => { this.deleteBook(book._id) }} variant="danger">DELETE</Button>
-                    <Button onClick={() => { this.setState({ showForm: true }) }} variant="primary">Update Book Information</Button>
+                    <Button onClick={() => { this.setState({ showForm: true, selectedBook: book }) }} variant="primary">Update Book Information</Button>
                   </Carousel.Caption>
                 </Carousel.Item>
               ))}
@@ -164,7 +168,7 @@ class BestBooks extends React.Component {
 
             {this.state.showForm &&
               <UpdateBookForm
-                books={this.state.books}
+                selectedBook={this.state.selectedBook}
                 showForm={this.state.showForm}
                 updateBook={this.updateBook}
               />
