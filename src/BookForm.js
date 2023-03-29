@@ -20,9 +20,7 @@ class BookForm extends React.Component {
           <Form.Label>Have you read this book?</Form.Label>
           <Form.Control type="text" placeholder="Please enter 'read' or 'not read'" />
         </Form.Group>
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
+        <Button variant="primary" type="submit"> Submit </Button>
       </Form>
     );
   }

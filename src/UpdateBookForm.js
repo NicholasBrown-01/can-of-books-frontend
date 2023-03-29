@@ -27,9 +27,7 @@ class UpdateBookForm extends React.Component {
   render() {
     return (
       <Container>
-        <Form
-        
-        onSubmit={this.handleUpdateSubmit}>
+        <Form onSubmit={this.handleUpdateSubmit}>
           <Form.Group controlId='title'>
             <Form.Label>Update Book Name</Form.Label>
             <Form.Control type="text" placeholder="Update a book title" defaultValue={this.props.books.title} />
