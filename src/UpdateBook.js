@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 class UpdateBookForm extends React.Component {
-  
+
   handleUpdateSubmit = (event) => {
     event.preventDefault();
 
@@ -23,18 +23,18 @@ class UpdateBookForm extends React.Component {
       <>
         <Form onSubmit={this.handleUpdateSubmit}>
           <Form.Group controlId='title'>
-            <Form.Label>Add Book Name</Form.Label>
-            <Form.Control type="text" placeholder="Please add a book title" defaultValue={this.props.books.title} />
+            <Form.Label>Update Book Name</Form.Label>
+            <Form.Control type="text" placeholder="Update a book title" defaultValue={this.props.books.title} />
           </Form.Group>
 
           <Form.Group controlId='description'>
-            <Form.Label>Book Description</Form.Label>
+            <Form.Label>Update Book Description</Form.Label>
             <Form.Control type="text" placeholder="Enter your description here" defaultValue={this.props.books.description} />
           </Form.Group>
 
           <Form.Group controlId='status'>
             <Form.Label>Have you read this book?</Form.Label>
-            <Form.Control type="text" placeholder="Please enter 'read' or 'not read'" defaultValue={this.props.books.status} />
+            <Form.Control type="text" placeholder="'read' or 'not read'" defaultValue={this.props.books.status} />
           </Form.Group>
           <Button variant="primary" type="submit">
             Submit
