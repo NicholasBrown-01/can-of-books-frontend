@@ -3,7 +3,7 @@ import axios from 'axios';
 import Carousel from 'react-bootstrap/Carousel';
 import Button from 'react-bootstrap/Button';
 import BookModal from './BookModal.js';
-import UpdateBook from './UpdateBook.js';
+import UpdateBookForm from './UpdateBookForm.js';
 
 class BestBooks extends React.Component {
   constructor(props) {
@@ -42,7 +42,6 @@ class BestBooks extends React.Component {
         books: bookDataFromAxios.data,
         error: false
       });
-      console.log('Book Data', bookDataFromAxios);
 
     } catch (error) {
       this.setState({
@@ -88,14 +87,15 @@ class BestBooks extends React.Component {
   //*** UPDATE B OOK IN THE STATE USING AXIOS TO HIT THE BACKEND */
   updateBook = async (bookObjToUpdate) => {
     try {
+      //TODO: URL for axios
       let url = `${process.env.REACT_APP_SERVER_BOOKS}/books/${bookObjToUpdate._id}`;
 
       let updatedBook = await axios.put(url, bookObjToUpdate);
 
       // TODO: set state with return from axios
       let updatedBookArray = this.state.books.map(existingBook => {
-        return existingBook._id === bookObjToUpdate._id ?
-          updatedBook.data
+        return existingBook._id === bookObjToUpdate._id
+          ? updatedBook.data
           : existingBook
       });
 
@@ -152,7 +152,7 @@ class BestBooks extends React.Component {
                     <p>{book.status}</p>
                     {/* Anonymous function added to button to allow for id to be fed into the deleteBook handler */}
                     <Button onClick={() => { this.deleteBook(book._id) }} variant="danger">DELETE</Button>
-                    <Button onClick={() => { this.updateBook(book._id)}} variant="primary">Update Book Information</Button>
+                    <Button onClick={() => { this.setState({ showForm: true }) }} variant="primary">Update Book Information</Button>
                   </Carousel.Caption>
                 </Carousel.Item>
               ))}
@@ -160,10 +160,13 @@ class BestBooks extends React.Component {
 
             <Button onClick={this.handleOpenModal} variant="success">ADD BOOK</Button>
 
-            <UpdateBook
-              showForm={this.state.showForm}
-              books={this.state.books}
-            />
+            {this.state.showForm &&
+              <UpdateBookForm
+                books={this.state.books}
+                showForm={this.state.showForm}
+                updateBook={this.updateBook}
+              />
+            }
 
 
             <BookModal
